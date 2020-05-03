@@ -11,7 +11,7 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "node src/index.js",
+    "start": "react-scripts start",
     "publishheroku": "cd ../ && git subtree push --prefix photo-viewer-app heroku-app-ui master || true",
     "build": "react-scripts build",
     "test": "react-scripts test",
