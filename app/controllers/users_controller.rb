@@ -9,13 +9,8 @@ def index
    render json: @users
 end
 
-def show
-    
-   if @user 
+def show 
    render json: @user
-   else
-   render json: {}
-   end
 end
 
 def create 
@@ -38,9 +33,7 @@ end
 private
 
 def find_user
-   
    @user = User.find(params[:id])
-   
 end
 
 def user_params

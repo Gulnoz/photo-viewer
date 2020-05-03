@@ -8,7 +8,7 @@
 require 'csv'
 
 CSV.foreach(Rails.root.join('lib/BmA8B0tY.csv')) do |el|
-dims = el[0].split('/')[5]+"x"+el[0].split('/')[6]
+dims = "#{el[0].split('/')[5]}x#{el[0].split('/')[6]}"
 
 Photo.create(url: el[0], dimensions: dims)
 end
