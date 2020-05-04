@@ -1,9 +1,11 @@
 {
   "name": "photo-viewer-app",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "engines": {
-    "node": "12.11.1"
+    "npm": "5.7.1",
+    "node": "9.5.0"
   },
+  "proxy": "http://localhost:3001",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
