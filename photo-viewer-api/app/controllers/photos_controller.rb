@@ -3,9 +3,11 @@ before_action :photo_params, only: [:create]
 before_action :find_photo, only: [:show]
 
 def index
-    
     @photos = Photo.all
-    if params[:page]
+    if params[:filter] && params[:filter]!='false'
+        photoByDimensions
+    
+    elsif params[:page] && !params[:filter]
     render json: @photos.paginate(page: params[:page], per_page: 10)
     else
     render json: @photos
@@ -27,12 +29,18 @@ def create
     @photo = Photo.create!(photo_params)
     render json: @photo
 end
-
+def getDimensions
+@dimensionsArr = Photo.select(:dimensions).group(:dimensions)
+render json: {data: @dimensionsArr}
+end
 def photoByDimensions
-   
-    @photos = Photo.where(dimensions: params[:dimensions])
-
+    
+     @photos = Photo.where(dimensions: params[:filter])
+    if params[:page]
     render json: @photos.paginate(page: params[:page], per_page: 10)
+    else
+     render json: @photos
+    end
 end
 end
 
