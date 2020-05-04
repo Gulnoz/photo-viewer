@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import './Photos.css';
 import { DropdownButton, Dropdown } from "react-bootstrap";
-
+import ReactPaginate from 'react-paginate';
 const Photos = props => {
-    const{photos, dimensions}=props
+    const{photos, dimensions, pages}=props
     const [value, setValue] = useState(null);
 
 
@@ -13,8 +13,8 @@ const Photos = props => {
     }
     return (
         <> 
-            <h3 style={{ color: "white" }}>Select photo by dimensions:
-                <select value={value} onChange={handleChange}>
+            <h3 className='dropdown'>Select photo by dimensions:
+                <select className='select-dd' value={value} onChange={handleChange}>
                     <option selected disabled>-Select size-</option>
                     <option value={false}>All</option>
                     {dimensions ?
@@ -25,19 +25,31 @@ const Photos = props => {
                         : null
                     }
     
-                  
                 </select> </h3>
-               
 
         <div class='flex'>
-            
             {photos ?
             photos.map(photo=>{
-                return <img src={photo.url}/>
+                return <div><img id={photo.id} src={photo.url}
+                 onClick={props.imageHendler}/> </div>
             })
             : null
-        }
-           
+            }
+        </div>
+        <div>
+            <ReactPaginate
+                previousLabel={'previous'}
+                nextLabel={'next'}
+                breakLabel={'...'}
+                breakClassName={'break-me'}
+                pageCount={pages}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={5}
+                onPageChange={this.handlePageClick}
+                containerClassName={'pagination'}
+                subContainerClassName={'pages pagination'}
+                activeClassName={'active'}
+            />
         </div>
         </>
     )

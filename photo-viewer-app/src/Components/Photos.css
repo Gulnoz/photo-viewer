@@ -1,12 +1,35 @@
 .dropdown {
   display: inline-block;
-  margin-right: 20px;
-  color: red;
+  margin: 20px;
+  color:black;
 }
-p {
-  padding: 1rem;
+.select-dd{
+background-color: white; 
+margin-left: 10px;
+width: 150px;
+height: 30px;
+font-size: smaller;
+}
+.select-dd > *{
+    position: relative;
+  display: inline-block;
+background-color: white; 
+margin-left: 10px;
+}
+.flex{
+display: flex;
+flex-flow: wrap;
+
 }
 
-#app {
-  padding: 1rem;
+.flex div{
+/* width: 100px; */
+height: 200px;
+flex: 30%;
+margin: 10px;
+align-items: flex-end;
+}
+.flex img{
+/* width: 100px; */
+height: 200px;
 }
