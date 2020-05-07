@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/photos/:id',  to: 'photos#show'
   
   # get '/photos/:id?grayscale',  to: 'photos#photoGrayscale'
-  # post '/login', to: 'auth#login'
-  # get '/auth', to: 'auth#persist'
+  post '/login', to: 'auth#login'
+  get '/auth', to: 'auth#persist'
 
 end

@@ -1,0 +1,54 @@
+.container{
+ /* position: fixed; /* Sit on top of the page content */
+  /* display: block; Hidden by default */ 
+  width: 60%; /* Full width (cover the whole page) */
+  height: 60%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+ 
+}
+.loginForm{
+color: white;
+}
+.Absolute-Center {
+   display: flex;
+    align-items: center;
+    justify-content: center;
+margin: auto;
+position: absolute;
+top: 0; left: 0; bottom: 0; right: 0;
+}
+.Absolute-Center.is-Responsive {
+width: 50%; 
+height: 50%;
+min-width: 200px;
+max-width: 400px;
+padding: 40px;
+background-color: rgba(166, 166, 166,0.8);
+border-radius: 3px;
+border-width: 1px;
+border-style: solid;
+border-color: rgba(166, 166, 166,0.9);
+}
+.Absolute-Center.is-Responsive input{
+    height: 24px;
+    width: 189px;
+    padding-left: 6px;
+}
+/* .Absolute-Center.is-Responsive {
+    
+    padding-left: 10px;
+} */
+.Absolute-Center.is-Responsive button{
+    width: 200px;
+    cursor: pointer;
+    font-size: 16px;
+}
+#signup-btn{
+height: 40px;
+width: 200px;
+}

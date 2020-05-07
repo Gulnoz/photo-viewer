@@ -1,56 +1,72 @@
 import React, { useState } from "react";
 import './Photos.css';
-import { DropdownButton, Dropdown } from "react-bootstrap";
+import Login from './Login'
 import ReactPaginate from 'react-paginate';
+
 const Photos = props => {
     const{photos, dimensions, pages}=props
     const [value, setValue] = useState(null);
-
+    const [currentPage, setCurrentPage] = useState(0);
 
     const handleChange = (event) => {
         setValue(event.target.value);
         props.filterHendler(event.target.value)
     }
+    const handlePage=(e)=>{
+        props.handlePageClick(e)
+        setCurrentPage(e.selected)
+    }
     return (
-        <> 
-            <h3 className='dropdown'>Select photo by dimensions:
+        <> {props.login ? <Login setCurrentUser={props.setCurrentUser}/>:null}
+            <h3 className='dropdown'>Filter by dimensions:
                 <select className='select-dd' value={value} onChange={handleChange}>
                     <option selected disabled>-Select size-</option>
                     <option value={false}>All</option>
                     {dimensions ?
                         dimensions.map(d => {
-                            // let h = `filter?${d.dimensions}`
                             return <option value={d.dimensions}>{d.dimensions}</option>
                         })
                         : null
                     }
-    
                 </select> </h3>
 
         <div class='flex'>
             {photos ?
             photos.map(photo=>{
                 return <div><img id={photo.id} src={photo.url}
-                 onClick={props.imageHendler}/> </div>
+                 onClick={()=>props.imageHendler(photo)}/> </div>
             })
             : null
             }
         </div>
-        <div>
+        {pages>1?<div className='paginate-container'>
             <ReactPaginate
-                previousLabel={'previous'}
-                nextLabel={'next'}
+                breakClassName={'page-item'}
+                activePage={currentPage}
+                selected={currentPage}
+                breakLinkClassName={'page-link'}
+                containerClassName={'pagination'}
+                pageClassName={'page-item'}
+                pageLinkClassName={'page-link'}
+                previousClassName={'page-item'}
+                previousLinkClassName={'page-link'}
+                nextClassName={'page-item'}
+                nextLinkClassName={'page-link'}
+                activeClassName={'active'}
+                initialPage={currentPage}
+                previousLabel={'<<'}
+                nextLabel={'>>'}
                 breakLabel={'...'}
                 breakClassName={'break-me'}
                 pageCount={pages}
-                marginPagesDisplayed={2}
+                marginPagesDisplayed={20}
                 pageRangeDisplayed={5}
-                onPageChange={this.handlePageClick}
-                containerClassName={'pagination'}
-                subContainerClassName={'pages pagination'}
-                activeClassName={'active'}
+                onPageChange={handlePage}
+                
             />
         </div>
+        :null
+}
         </>
     )
         

@@ -1,7 +1,8 @@
 .dropdown {
-  display: inline-block;
-  margin: 20px;
-  color:black;
+display: inline-block;
+margin:20px 60px;
+font-family: 'Special Elite', cursive;
+color:white;
 }
 .select-dd{
 background-color: white; 
@@ -11,25 +12,82 @@ height: 30px;
 font-size: smaller;
 }
 .select-dd > *{
-    position: relative;
-  display: inline-block;
+position: relative;
+display: inline-block;
 background-color: white; 
 margin-left: 10px;
 }
 .flex{
 display: flex;
-flex-flow: wrap;
-
+flex-wrap: wrap;
+align-items: center;
+margin: 30px;
 }
-
 .flex div{
-/* width: 100px; */
-height: 200px;
-flex: 30%;
-margin: 10px;
-align-items: flex-end;
+display: flex;
+/* height: 200px; */
+margin: 1em auto;
 }
 .flex img{
 /* width: 100px; */
-height: 200px;
+/* height: 200px; */
+border-radius: 3px;
+border-width: 1px;
+border-style: solid;
+border-color: rgba(166, 166, 166,0.6);
 }
+.page-item{
+display: inline-block;
+border: 1px solid rgb(224, 224, 224);
+color: #000;
+cursor: pointer;
+margin-right: 3px;
+border-radius: 5px;
+margin-bottom: 5px;
+}
+.pagination{
+display: inline-block;
+margin-left: 20px;
+padding-left: 0;
+}
+
+.page-link{
+font-family: 'Kreon', serif;
+display: flex;
+align-content: center;
+justify-content: center;
+padding: 5px 5px;
+display: inline-block;
+color: white;
+outline: none;
+background-color: darkgrey;
+}
+.page-link:active{
+background:grey;
+outline: none;
+}
+.page-link:hover{
+background: rgba(166, 166, 166,0.6);
+outline: none;
+}
+.page-link:focus{
+background: rgba(166, 166, 166,0.6);
+outline: none;
+}
+.paginate-container{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.show-photo-box{
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+height: -webkit-fill-available;
+background-color:(255,255,255,0.5);
+}
+.show-photo-box img{
+border-radius: 3px;
+}
+

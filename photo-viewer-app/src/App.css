@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+
 }
 
 .App-logo {
@@ -35,4 +36,34 @@
   to {
     transform: rotate(360deg);
   }
+}
+@media all and (min-width: 480px) {
+  .Login {
+    padding: 60px 0;
+  }
+
+  .Login form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+}
+.favorit-content-div, .ui.form{
+  padding-top: 15px;
+  background:rgba(70, 107, 117,.5);
+  color: whitesmoke;
+  height: 440px;
+  width: 280px;
+  border: 1px solid #466b75;
+  overflow: auto;
+  border-radius: 10px;
+}
+.favorit-content-div li{
+  padding-top: 10px;
+}
+form.ui.form {
+  padding-bottom: 0 !important;
+}
+
+.ui.form .field input{
+  width: 60%;
 }
