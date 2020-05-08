@@ -1,4 +1,6 @@
-# PHOTO VIEWER APPLICATION
+# PHOTO VIEWER APPLICATION 
+
+Deployed application on Heroku: https://photo-view-app.herokuapp.com/
 
 This application was built using React.js for frontend and Ruby on Rails and PostgreSQL for server
 
