@@ -17,7 +17,7 @@ const Photos = props => {
         setCurrentPage(e.selected)
     }
     return (
-        <> {props.login ? <Login setCurrentUser={props.setCurrentUser}/>:null}
+        <> {props.login ? <Login loginFormCloseHendler={props.loginFormCloseHendler}setCurrentUser={props.setCurrentUser}/>:null}
             <h3 className='dropdown'>Filter by dimensions:
                 <select className='select-dd' value={value} onChange={handleChange}>
                     <option selected disabled>-Select size-</option>
@@ -34,7 +34,7 @@ const Photos = props => {
             {photos ?
             photos.map(photo=>{
                 return <div><img id={photo.id} src={photo.url}
-                 onClick={()=>props.imageHendler(photo)}/> </div>
+                onClick={()=>props.imageHendler(photo)}/> </div>
             })
             : null
             }
@@ -65,8 +65,7 @@ const Photos = props => {
                 
             />
         </div>
-        :null
-}
+        :null}
         </>
     )
         

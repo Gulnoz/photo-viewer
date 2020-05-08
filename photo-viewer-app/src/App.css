@@ -47,6 +47,9 @@
     max-width: 320px;
   }
 }
+Button{
+font-family: 'Kreon', serif;
+}
 .favorit-content-div, .ui.form{
   padding-top: 15px;
   background:rgba(70, 107, 117,.5);

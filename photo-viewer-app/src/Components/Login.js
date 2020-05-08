@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 import GoogleForm from './GoogleLogin'
+import SignUp from './SignUp'
 import './Login.css';
 
 class Login extends Component {
     state = {
-        name: "",
         email: "",
         password: "",
-        errorMessege: null
+        errorMessege: null,
+        signUpForm: false
     }
 
     handleChange = event => {
@@ -16,7 +17,11 @@ class Login extends Component {
             [event.target.name]: event.target.value
         });
     }
-
+    signUpHendler=()=>{
+        this.setState({
+            signUpForm: !this.state.signUpForm
+        })
+    }
     errorMessegeHendler(message) {
         this.setState({
             errorMessege: message
@@ -36,20 +41,7 @@ class Login extends Component {
             .then(res => res.json())
             .then((result) => {
                 if (result.error === 'Not exist') {
-                    fetch('https://photo-viewer-apii.herokuapp.com/users',
-                        {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({
-                                email: this.state.email,
-                                password: this.state.password
-                            })
-                        })
-                        .then(res => res.json())
-                        .then((result) => {
-                            this.props.setCurrentUser(result.user);
-                            localStorage.setItem('currentUserToken', result.jwt);
-                        })
+                    this.errorMessegeHendler(result.error)
                 }
                 else if (result.error === 'Wrong password') {
                     this.errorMessegeHendler(result.error)
@@ -65,35 +57,36 @@ class Login extends Component {
     }
     render() {
         return (
-            <div className="container loginForm">
+                <div className="container loginForm">
                 <div className="Absolute-Center is-Responsive">
-                  
-            <Form onSubmit={this.handleSubmit} >
+                    <div className='close-btn'onClick={this.props.loginFormCloseHendler}>x</div>
+                    {!this.state.signUpForm ?
+                    <>
+                <Form onSubmit={this.handleSubmit} >
+                    <div className='login-text'>{this.signUpForm ? "SignUp" : "SignIn" }</div>
                 
-                <div style={{ color: 'white', padding: "10px",textAlign: "center", fontSize: "calc(10px + 2vmin)", fontWeight: "bold" }}>SignUp</div>
-                        <GoogleForm setCurrentUser={this.props.setCurrentUser} />
+                <GoogleForm setCurrentUser={this.props.setCurrentUser} />
                 <Form.Group controlId="formBasicEmail">
-                    <Form.Label></Form.Label>
-                    <Form.Control type="input" name="name" value={this.state.name} placeholder="Full Name" onChange={this.handleChange} />
-                </Form.Group>
-                <Form.Group controlId="formBasicEmail">
-                    <Form.Label></Form.Label>
-                    <Form.Control type="email" name="email" value={this.state.email} placeholder="Enter email" onChange={this.handleChange} />
+                <Form.Label></Form.Label>
+                            <Form.Control type="email" name="email" required="required"  value={this.state.email} placeholder="Enter email" onChange={this.handleChange} />
                 </Form.Group>
                 <Form.Group controlId="formBasicPassword">
-
-                    <Form.Control type="password" name="password" value={this.state.password} placeholder="Password" onChange={this.handleChange} />
-
+                    <Form.Control type="password" name="password" required="required" value={this.state.password} placeholder="Password" onChange={this.handleChange} />
                 </Form.Group>
                 {this.state.errorMessege
                     ? <div><Form.Label style={{ color: 'red' }}>{this.state.errorMessege}!!!</Form.Label></div>
                     : null}
-                <Button id = "signup-btn"variant="primary" type="submit">
-                    Submit
-        </Button>
-                        
-            </Form>
-                  
+                <Button className = "signin-btn" variant="primary" type="submit">
+                    Login
+                </Button> 
+                
+                </Form>
+                    <div className='signup-link' onClick={this.signUpHendler}>
+                        Don't have accaunt?
+                    </div>
+                    </>
+                        : <SignUp {...this.props} signUpHendler={this.signUpHendler}/>
+                    }
             </div>
             </div>
         )

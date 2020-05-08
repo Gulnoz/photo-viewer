@@ -21,6 +21,11 @@ class App extends React.Component {
       login: true
     })
   }
+  loginFormCloseHendler = () => {
+    this.setState({
+      login: false
+    })
+  }
    filterHendler = (value) => {
      console.log(value)
      fetch(`https://photo-viewer-apii.herokuapp.com/photos?filter=${value}&&page=1`)
@@ -41,6 +46,11 @@ class App extends React.Component {
     this.setState({
     user:user
   })
+  }
+  logOutHendler=()=>{
+    this.setState({
+      user: null
+    })
   }
   imageHendler=(photo)=>{
     console.log(this.props)
@@ -98,13 +108,14 @@ componentDidMount(){
     
   return (
     <>
-      <Navigation user={this.state.user}history={this.props} loginHendler={this.loginHendler}logOutHendler={this.logOutHendler} />
+      <Navigation user={this.state.user} history={this.props} logOutHendler={this.logOutHendler}loginHendler={this.loginHendler}logOutHendler={this.logOutHendler} />
       <Switch>
         <Route path="/" exact render={props => <Redirect {...props} to="/photos" />} />
         <Route path="/photos" exact render={props =>
         <Photos 
         {...props}
-            setCurrentUser={this.setCurrentUser}
+          loginFormCloseHendler={this.loginFormCloseHendler}
+          setCurrentUser={this.setCurrentUser}
           login={this.state.login}
           dimensions={this.state.dimentions}
           photos={this.state.photos}
@@ -113,13 +124,13 @@ componentDidMount(){
           imageHendler={this.imageHendler} 
           handlePageClick={this.handlePageClick}
           />} />
-        {/* <Route path="/?greyscale"  render={props =>
+        {/* <Route path="/photos/:id?grayscale"  render={props =>
           <PhotoShow
             {...props}
             photo={this.state.photoShow}
           />} /> */}
         <Route path="/login" component={Login} />
-        <Route path={"/photos/:id"} exact render={props =>
+        <Route path={"/photos/:id"} render={props =>
           <PhotoShow
             {...props}
             photo={this.state.photoShow}

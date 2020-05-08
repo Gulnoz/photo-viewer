@@ -37,7 +37,7 @@ export default class Login extends React.Component {
             }) }
     render() {
         return (
-            <div>
+            <div className="google-btn">
                 <GoogleLogin class='loginBtn--google'
                     clientId={"81091394702-p4gl3rno7c01s3bq9370a7dfv7tdv1pn.apps.googleusercontent.com"}
                     buttonText="Login with Google"
