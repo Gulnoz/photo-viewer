@@ -22,7 +22,7 @@ top: 0; left: 0; bottom: 0; right: 0;
 .Absolute-Center.is-Responsive {
 position: fixed;
 width: 40%;
-height: 50%;
+height: 40%;
 min-width: 300px;
 min-height: 300px;
 background-color: rgba(38, 50, 56, .7);
