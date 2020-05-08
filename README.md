@@ -16,6 +16,6 @@ npm, PostgreSQL, Node, Ruby, Rails
 
 ## Install all dependencies instruction in README included for each app:
 
-### Server aplication [photo-viewer-app](https://github.com/Gulnoz/photo-viewer/tree/master/photo-viewer-api)
+### Server aplication [photo-viewer-api](https://github.com/Gulnoz/photo-viewer/tree/master/photo-viewer-api)
 
-### Client aplication [photo-viewer-api](https://github.com/Gulnoz/photo-viewer/tree/master/photo-viewer-app)
+### Client aplication [photo-viewer-app](https://github.com/Gulnoz/photo-viewer/tree/master/photo-viewer-app)
