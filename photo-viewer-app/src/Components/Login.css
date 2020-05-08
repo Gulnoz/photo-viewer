@@ -1,0 +1,74 @@
+.container{
+width: 60%; 
+height: 60%; 
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: rgba(0,0,0,0.5); 
+z-index: 2; 
+}
+.loginForm{
+color: white;
+}
+.Absolute-Center {
+display: flex;
+align-items: center;
+flex-direction: column;
+margin: auto;
+position: absolute;
+top: 0; left: 0; bottom: 0; right: 0;
+}
+.Absolute-Center.is-Responsive {
+position: fixed;
+width: 40%;
+height: 50%;
+min-width: 300px;
+min-height: 300px;
+background-color: rgba(38, 50, 56, .7);
+border-radius: 3px;
+border-width: 1px;
+border-style: solid;
+border-color: rgba(166, 166, 166,0.9);
+}
+.Absolute-Center.is-Responsive input{
+height: 34px;
+width: 190px;
+padding-left: 5px;
+}
+.Absolute-Center.is-Responsive button{
+cursor: pointer;
+font-size: 16px;
+color: black;
+margin: 3px 1px
+}
+.signup-btn{
+height: 40px;
+}
+.signup-link{
+cursor: pointer;
+}
+.close-btn{
+cursor: pointer;
+font-size: 25px;
+align-self: flex-end;
+width: 20px;
+}
+.login-text{
+padding: 10px;
+text-align: center;
+font-size: calc(10px + 2vmin);
+font-weight: "bold" 
+}
+.google-btn button{
+  width: 200px;
+height: 40px;
+}
+Button.signin-btn{
+width: 200px;
+height: 40px;
+}
+Button.signup-btn{
+width: 100px;
+height: 40px;
+}

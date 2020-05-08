@@ -1,7 +1,6 @@
 class AuthController < ApplicationController
 MY_SECRET = ENV['my_secret']
 
-
 def login
     @user = User.find_by(email: login_params[:email])
     if @user && @user.authenticate(login_params[:password])

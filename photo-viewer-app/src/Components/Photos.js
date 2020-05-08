@@ -1,44 +1,41 @@
 import React, { useState } from "react";
 import './Photos.css';
-import { DropdownButton, Dropdown } from "react-bootstrap";
+import Login from './Login'
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const Photos = props => {
-    const{photos, dimensions}=props
-    const [value, setValue] = useState(null);
-
+    const{photos, dimensions, pages, currentPage} = props
+    const [value, setValue] = useState('All');
 
     const handleChange = (event) => {
         setValue(event.target.value);
         props.filterHendler(event.target.value)
     }
-    return (
-        <> 
-            <h3 style={{ color: "white" }}>Select photo by dimensions:
-                <select value={value} onChange={handleChange}>
-                    <option selected disabled>-Select size-</option>
-                    <option value={false}>All</option>
-                    {dimensions ?
-                        dimensions.map(d => {
-                            // let h = `filter?${d.dimensions}`
-                            return <option value={d.dimensions}>{d.dimensions}</option>
-                        })
-                        : null
-                    }
-    
-                  
-                </select> </h3>
-               
 
-        <div class='flex'>
-            
-            {photos ?
-            photos.map(photo=>{
-                return <img src={photo.url}/>
-            })
-            : null
-        }
-           
-        </div>
+    return (
+        <> {props.login ? <Login loginFormCloseHendler={props.loginFormCloseHendler}setCurrentUser={props.setCurrentUser}/>:null}
+            <h3 className='dropdown'>Filter by dimensions:
+                <select className='select-dd' value={value} onChange={handleChange}>
+                    <option value={false}>All</option>
+                    {dimensions ? dimensions.map((d,index) => <option key={index}value={d.dimensions}>{d.dimensions}</option>) : null}
+                </select> </h3>
+            <div>
+                {photos ?
+                <InfiniteScroll
+                    dataLength={photos.length}
+                    next={props.fetchMoreData}
+                    hasMore={pages-currentPage!==0}
+                    loader={<h4>Loading...</h4>}
+                >
+                    <div className='flex'>                  
+                            {photos.map((photo,index) => {
+                                return  <div key={index}><img id={photo.id} src={photo.url}
+                                                onClick={() => props.imageHendler(photo)}/> 
+                                        </div>})}                         
+                    </div> 
+                </InfiniteScroll> 
+                : null}
+            </div> 
         </>
     )
         
