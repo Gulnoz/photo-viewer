@@ -1,32 +1,30 @@
 
 .nav-buttons-right{
 font-family: 'Kreon', serif;
+width: 100%;
+background-color: rgba(38, 50, 56, .7);
+position: fixed;
 display: flex;
 align-items: center;
-justify-content: center;
+justify-content: flex-end;
 float: right;
-margin: 10px;
-right: 0;
 color: white;
-/* background-color:rgb(38, 50, 56); */
-height: 35px;
+height: 40px;
 border-radius: 3px;
 border-width: 1px;
 border-style: solid;
 border-color: rgba(38, 50, 56);
 }
 .nav-buttons-right > a{
-/* margin-right: 10px; */
-color: darkblue;
+color: steelblue;
 padding: 5px;
 text-decoration: none;
 font-weight: 500;
-
 }
 
 #user-name{
 border-right: white solid 1px;
- color: white;
- font-weight: 500;
- padding: 4px
+color: white;
+font-weight: 500;
+padding: 4px
 }

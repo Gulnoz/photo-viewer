@@ -8,8 +8,11 @@ def index
         photo_by_dimensions
     elsif params[:page] && params[:filter]='false'
     @pages = (@photos.count.to_f/10.0).ceil
-    render json: {data: @photos.paginate(page: params[:page], per_page: 10).as_json(only: [:id,:url]), pages: @pages} 
-    else               
+    render json: {photos: @photos.paginate(page: params[:page], per_page: 10).as_json(only: [:id,:url]), currentPage: params[:page].to_i, pages: @pages} 
+   # render json: {data: PhotoSerializer.new(@photos.paginate(page: params[:page], per_page: 10)), currentPage: params[:page].to_i, pages: @pages} 
+ 
+
+   else               
     render json: @photos
     end
 end
@@ -47,14 +50,16 @@ end
 
 def get_dimensions
     @dimensionsArr = Photo.select(:dimensions).group(:dimensions)
-    render json: {data: @dimensionsArr}
+    render json: {dimensions: @dimensionsArr}
 end
 
 def photo_by_dimensions
     @photos = Photo.where(dimensions: params[:filter])
     @pages = (@photos.count.to_f/10.0).ceil
     if params[:page]
-      render json: {data: @photos.paginate(page: params[:page], per_page: 10).as_json(only: [:id,:url]), pages: @pages} 
+       # render json: {data: PhotoSerializer.new(@photos.paginate(page: params[:page], per_page: 10)), currentPage: params[:page].to_i, pages: @pages} 
+ 
+    render json: {photos: @photos.paginate(page: params[:page], per_page: 10).as_json(only: [:id,:url]),currentPage: params[:page].to_i, pages: @pages} 
     else
       render json: @photos
     end

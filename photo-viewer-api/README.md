@@ -16,9 +16,13 @@ bash code `rails db:seed`
 * How to run the test suite
 
 * Services (job queues, cache servers, search engines, etc.)
-http://localhost:3000/photos
-http://localhost:3000/photos?page=2
-http://localhost:3000/photos/filter?dimensions=300x200&page=2
+Get photos: http://localhost:3000/photos
+Get photos by page: http://localhost:3000/photos?page=2
+Filter by dimensions and paging: http://localhost:3000/photos/filter?dimensions=300x200&page=2
+Get photo grayscale version: http://localhost:3000/photos?:id/grayscale
+Photo size manipulation: http://localhost:3000/photos?:id/:width/:height
+Photo size manipulation grayscale version: http://localhost:3000/photos?:id/:width/:height?grayscale
+
 
 ## Deployment instructions
 clone Repo

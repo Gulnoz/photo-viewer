@@ -5271,3 +5271,400 @@ Processing by PhotosController#index as HTML
 Completed 200 OK in 30ms (Views: 12.8ms | ActiveRecord: 10.7ms | Allocations: 4240)
 
 
+Started GET "/" for ::1 at 2020-05-08 10:12:31 -0400
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/gulnoza/.rvm/gems/ruby-2.6.6/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/gulnoza/.rvm/gems/ruby-2.6.6/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 12.6ms | Allocations: 311)
+Completed 200 OK in 24ms (Views: 17.3ms | ActiveRecord: 0.0ms | Allocations: 1623)
+
+
+Started GET "/photos" for ::1 at 2020-05-08 10:12:36 -0400
+Processing by PhotosController#index as HTML
+  [1m[36mPhoto Load (2.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  ↳ app/controllers/photos_controller.rb:13:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (7.74ms)
+Completed 200 OK in 48ms (Views: 25.9ms | ActiveRecord: 15.1ms | Allocations: 12376)
+
+
+Started GET "/photos?page=1" for ::1 at 2020-05-08 10:12:40 -0400
+Processing by PhotosController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos"[0m
+  ↳ app/controllers/photos_controller.rb:10:in `index'
+  [1m[36mPhoto Load (1.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/photos_controller.rb:11:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.33ms)
+Completed 200 OK in 25ms (Views: 3.5ms | ActiveRecord: 15.4ms | Allocations: 2837)
+
+
+Started GET "/photos?page=1" for ::1 at 2020-05-08 10:14:16 -0400
+Processing by PhotosController#index as HTML
+  Parameters: {"page"=>"1"}
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms | Allocations: 662)
+
+
+  
+TypeError (Photo::ActiveRecord_Relation can't be referred to):
+  
+app/models/photo.rb:7:in `all_cached'
+app/controllers/photos_controller.rb:6:in `index'
+Started GET "/photos?page=1" for ::1 at 2020-05-08 10:14:18 -0400
+Processing by PhotosController#index as HTML
+  Parameters: {"page"=>"1"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 139)
+
+
+  
+TypeError (Photo::ActiveRecord_Relation can't be referred to):
+  
+app/models/photo.rb:7:in `all_cached'
+app/controllers/photos_controller.rb:6:in `index'
+Started GET "/photos?page=1" for ::1 at 2020-05-08 10:15:05 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PhotosController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos"[0m
+  ↳ app/controllers/photos_controller.rb:10:in `index'
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/photos_controller.rb:11:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.55ms)
+Completed 200 OK in 27ms (Views: 1.7ms | ActiveRecord: 11.7ms | Allocations: 7153)
+
+
+Started GET "/photos?page=1" for ::1 at 2020-05-08 10:19:03 -0400
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/gulnoza/Documents/GitHub/photo-viewer/photo-viewer-api/app/controllers/photos_controller.rb:11: syntax error, unexpected tSTRING_DEND, expecting end
+...ams[:page].to_i, pages: @pages} 
+...                              ^
+/Users/gulnoza/Documents/GitHub/photo-viewer/photo-viewer-api/app/controllers/photos_controller.rb:46: syntax error, unexpected tSTRING_DEND, expecting '}'
+...ror: 'Adding new photo failed'}
+...                              ^
+/Users/gulnoza/Documents/GitHub/photo-viewer/photo-viewer-api/app/controllers/photos_controller.rb:52: syntax error, unexpected tSTRING_DEND, expecting '}'
+...er json: {data: @dimensionsArr}
+...                              ^
+/Users/gulnoza/Documents/GitHub/photo-viewer/photo-viewer-api/app/controllers/photos_controller.rb:59: syntax error, unexpected '}', expecting end
+...ams[:page].to_i, pages: @pages} 
+...                              ^
+/Users/gulnoza/Documents/GitHub/photo-viewer/photo-viewer-api/app/controllers/photos_controller.rb:80: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/photos_controller.rb:11: syntax error, unexpected tSTRING_DEND, expecting end
+app/controllers/photos_controller.rb:46: syntax error, unexpected tSTRING_DEND, expecting '}'
+app/controllers/photos_controller.rb:52: syntax error, unexpected tSTRING_DEND, expecting '}'
+app/controllers/photos_controller.rb:59: syntax error, unexpected '}', expecting end
+app/controllers/photos_controller.rb:80: syntax error, unexpected end-of-input, expecting end
+app/controllers/photos_controller.rb:11: syntax error, unexpected tSTRING_DEND, expecting end
+app/controllers/photos_controller.rb:46: syntax error, unexpected tSTRING_DEND, expecting '}'
+app/controllers/photos_controller.rb:52: syntax error, unexpected tSTRING_DEND, expecting '}'
+app/controllers/photos_controller.rb:59: syntax error, unexpected '}', expecting end
+app/controllers/photos_controller.rb:80: syntax error, unexpected end-of-input, expecting end
+Started GET "/photos?page=1" for ::1 at 2020-05-08 10:20:22 -0400
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/gulnoza/Documents/GitHub/photo-viewer/photo-viewer-api/app/controllers/photos_controller.rb:59: syntax error, unexpected tSTRING_DEND, expecting end
+...ams[:page].to_i, pages: @pages} 
+...                              ^
+/Users/gulnoza/Documents/GitHub/photo-viewer/photo-viewer-api/app/controllers/photos_controller.rb:74: syntax error, unexpected tSTRING_DEND, expecting '}'
+...=> #{params[:id]}} not found!"}
+...                              ^
+/Users/gulnoza/Documents/GitHub/photo-viewer/photo-viewer-api/app/controllers/photos_controller.rb:80: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/photos_controller.rb:59: syntax error, unexpected tSTRING_DEND, expecting end
+app/controllers/photos_controller.rb:74: syntax error, unexpected tSTRING_DEND, expecting '}'
+app/controllers/photos_controller.rb:80: syntax error, unexpected end-of-input, expecting end
+app/controllers/photos_controller.rb:59: syntax error, unexpected tSTRING_DEND, expecting end
+app/controllers/photos_controller.rb:74: syntax error, unexpected tSTRING_DEND, expecting '}'
+app/controllers/photos_controller.rb:80: syntax error, unexpected end-of-input, expecting end
+Started GET "/photos?page=1" for ::1 at 2020-05-08 10:20:25 -0400
+  
+SyntaxError (/Users/gulnoza/Documents/GitHub/photo-viewer/photo-viewer-api/app/controllers/photos_controller.rb:59: syntax error, unexpected tSTRING_DEND, expecting end
+...ams[:page].to_i, pages: @pages} 
+...                              ^
+/Users/gulnoza/Documents/GitHub/photo-viewer/photo-viewer-api/app/controllers/photos_controller.rb:74: syntax error, unexpected tSTRING_DEND, expecting '}'
+...=> #{params[:id]}} not found!"}
+...                              ^
+/Users/gulnoza/Documents/GitHub/photo-viewer/photo-viewer-api/app/controllers/photos_controller.rb:80: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/photos_controller.rb:59: syntax error, unexpected tSTRING_DEND, expecting end
+app/controllers/photos_controller.rb:74: syntax error, unexpected tSTRING_DEND, expecting '}'
+app/controllers/photos_controller.rb:80: syntax error, unexpected end-of-input, expecting end
+app/controllers/photos_controller.rb:59: syntax error, unexpected tSTRING_DEND, expecting end
+app/controllers/photos_controller.rb:74: syntax error, unexpected tSTRING_DEND, expecting '}'
+app/controllers/photos_controller.rb:80: syntax error, unexpected end-of-input, expecting end
+Started GET "/photos?page=1" for ::1 at 2020-05-08 10:21:00 -0400
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/gulnoza/Documents/GitHub/photo-viewer/photo-viewer-api/app/controllers/photos_controller.rb:59: syntax error, unexpected tSTRING_DEND, expecting end
+...ams[:page].to_i, pages: @pages} 
+...                              ^
+/Users/gulnoza/Documents/GitHub/photo-viewer/photo-viewer-api/app/controllers/photos_controller.rb:74: syntax error, unexpected tSTRING_DEND, expecting '}'
+...=> #{params[:id]}} not found!"}
+...                              ^
+/Users/gulnoza/Documents/GitHub/photo-viewer/photo-viewer-api/app/controllers/photos_controller.rb:80: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/photos_controller.rb:59: syntax error, unexpected tSTRING_DEND, expecting end
+app/controllers/photos_controller.rb:74: syntax error, unexpected tSTRING_DEND, expecting '}'
+app/controllers/photos_controller.rb:80: syntax error, unexpected end-of-input, expecting end
+app/controllers/photos_controller.rb:59: syntax error, unexpected tSTRING_DEND, expecting end
+app/controllers/photos_controller.rb:74: syntax error, unexpected tSTRING_DEND, expecting '}'
+app/controllers/photos_controller.rb:80: syntax error, unexpected end-of-input, expecting end
+Started GET "/photos?page=1" for ::1 at 2020-05-08 10:21:36 -0400
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/gulnoza/Documents/GitHub/photo-viewer/photo-viewer-api/app/controllers/photos_controller.rb:57: syntax error, unexpected tSTRING_DEND, expecting end
+...ams[:page].to_i, pages: @pages} 
+...                              ^
+/Users/gulnoza/Documents/GitHub/photo-viewer/photo-viewer-api/app/controllers/photos_controller.rb:72: syntax error, unexpected tSTRING_DEND, expecting '}'
+...=> #{params[:id]}} not found!"}
+...                              ^
+/Users/gulnoza/Documents/GitHub/photo-viewer/photo-viewer-api/app/controllers/photos_controller.rb:78: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/photos_controller.rb:57: syntax error, unexpected tSTRING_DEND, expecting end
+app/controllers/photos_controller.rb:72: syntax error, unexpected tSTRING_DEND, expecting '}'
+app/controllers/photos_controller.rb:78: syntax error, unexpected end-of-input, expecting end
+app/controllers/photos_controller.rb:57: syntax error, unexpected tSTRING_DEND, expecting end
+app/controllers/photos_controller.rb:72: syntax error, unexpected tSTRING_DEND, expecting '}'
+app/controllers/photos_controller.rb:78: syntax error, unexpected end-of-input, expecting end
+Started GET "/photos?page=1" for ::1 at 2020-05-08 10:21:39 -0400
+  
+SyntaxError (/Users/gulnoza/Documents/GitHub/photo-viewer/photo-viewer-api/app/controllers/photos_controller.rb:57: syntax error, unexpected tSTRING_DEND, expecting end
+...ams[:page].to_i, pages: @pages} 
+...                              ^
+/Users/gulnoza/Documents/GitHub/photo-viewer/photo-viewer-api/app/controllers/photos_controller.rb:72: syntax error, unexpected tSTRING_DEND, expecting '}'
+...=> #{params[:id]}} not found!"}
+...                              ^
+/Users/gulnoza/Documents/GitHub/photo-viewer/photo-viewer-api/app/controllers/photos_controller.rb:78: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/photos_controller.rb:57: syntax error, unexpected tSTRING_DEND, expecting end
+app/controllers/photos_controller.rb:72: syntax error, unexpected tSTRING_DEND, expecting '}'
+app/controllers/photos_controller.rb:78: syntax error, unexpected end-of-input, expecting end
+app/controllers/photos_controller.rb:57: syntax error, unexpected tSTRING_DEND, expecting end
+app/controllers/photos_controller.rb:72: syntax error, unexpected tSTRING_DEND, expecting '}'
+app/controllers/photos_controller.rb:78: syntax error, unexpected end-of-input, expecting end
+Started GET "/photos" for ::1 at 2020-05-08 10:21:46 -0400
+  
+SyntaxError (/Users/gulnoza/Documents/GitHub/photo-viewer/photo-viewer-api/app/controllers/photos_controller.rb:57: syntax error, unexpected tSTRING_DEND, expecting end
+...ams[:page].to_i, pages: @pages} 
+...                              ^
+/Users/gulnoza/Documents/GitHub/photo-viewer/photo-viewer-api/app/controllers/photos_controller.rb:72: syntax error, unexpected tSTRING_DEND, expecting '}'
+...=> #{params[:id]}} not found!"}
+...                              ^
+/Users/gulnoza/Documents/GitHub/photo-viewer/photo-viewer-api/app/controllers/photos_controller.rb:78: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/photos_controller.rb:57: syntax error, unexpected tSTRING_DEND, expecting end
+app/controllers/photos_controller.rb:72: syntax error, unexpected tSTRING_DEND, expecting '}'
+app/controllers/photos_controller.rb:78: syntax error, unexpected end-of-input, expecting end
+app/controllers/photos_controller.rb:57: syntax error, unexpected tSTRING_DEND, expecting end
+app/controllers/photos_controller.rb:72: syntax error, unexpected tSTRING_DEND, expecting '}'
+app/controllers/photos_controller.rb:78: syntax error, unexpected end-of-input, expecting end
+Started GET "/photos" for ::1 at 2020-05-08 10:23:12 -0400
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PhotosController#index as HTML
+  [1m[36mPhoto Load (2.6ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  ↳ app/controllers/photos_controller.rb:13:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (17.46ms)
+Completed 200 OK in 123ms (Views: 56.5ms | ActiveRecord: 44.5ms | Allocations: 12441)
+
+
+Started GET "/photos?page=1" for ::1 at 2020-05-08 10:23:49 -0400
+Processing by PhotosController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35m (11.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos"[0m
+  ↳ app/controllers/photos_controller.rb:10:in `index'
+  [1m[36mPhoto Load (0.7ms)[0m  [1m[34mSELECT "photos".* FROM "photos" LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/photos_controller.rb:11:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.67ms)
+Completed 200 OK in 57ms (Views: 19.5ms | ActiveRecord: 26.7ms | Allocations: 4319)
+
+
+Started GET "/photos?page=1" for ::1 at 2020-05-08 10:26:39 -0400
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PhotosController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos"[0m
+  ↳ app/controllers/photos_controller.rb:10:in `index'
+[active_model_serializers]   [1m[36mPhoto Load (7.5ms)[0m  [1m[34mSELECT "photos".* FROM "photos" LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+[active_model_serializers]   ↳ app/controllers/photos_controller.rb:12:in `index'
+[active_model_serializers]   [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos"[0m
+[active_model_serializers]   ↳ app/controllers/photos_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (154.69ms)
+  [1m[36mCACHE Photo Load (0.0ms)[0m  [1m[34mSELECT "photos".* FROM "photos" LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos"[0m
+Completed 500 Internal Server Error in 204ms (ActiveRecord: 61.1ms | Allocations: 13127)
+
+
+  [1m[36mCACHE Photo Load (0.0ms)[0m  [1m[34mSELECT "photos".* FROM "photos" LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos"[0m
+  
+NoMethodError (undefined method `read_attribute_for_serialization' for #<Photo::ActiveRecord_Relation:0x00007ffa611d95f8>):
+  
+app/controllers/photos_controller.rb:12:in `index'
+Started GET "/photos" for ::1 at 2020-05-08 10:30:09 -0400
+Started GET "/photo" for ::1 at 2020-05-08 10:30:09 -0400
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/photo"):
+  
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[35m (43.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PhotosController#index as HTML
+  [1m[36mPhoto Load (2.9ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  ↳ app/controllers/photos_controller.rb:16:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (22.96ms)
+Completed 200 OK in 239ms (Views: 77.6ms | ActiveRecord: 146.0ms | Allocations: 12367)
+
+
+Started GET "/photos?page=1" for ::1 at 2020-05-08 10:30:16 -0400
+Processing by PhotosController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35m (14.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos"[0m
+  ↳ app/controllers/photos_controller.rb:10:in `index'
+[active_model_serializers]   [1m[36mPhoto Load (1.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+[active_model_serializers]   ↳ app/controllers/photos_controller.rb:12:in `index'
+[active_model_serializers]   [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos"[0m
+[active_model_serializers]   ↳ app/controllers/photos_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (76.62ms)
+  [1m[36mCACHE Photo Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos"[0m
+Completed 500 Internal Server Error in 163ms (ActiveRecord: 25.7ms | Allocations: 7774)
+
+
+  [1m[36mCACHE Photo Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos"[0m
+  
+NoMethodError (undefined method `read_attribute_for_serialization' for #<Photo::ActiveRecord_Relation:0x00007faf6248d2d0>):
+  
+app/controllers/photos_controller.rb:12:in `index'
+Started GET "/photos?page=1" for ::1 at 2020-05-08 10:30:37 -0400
+Processing by PhotosController#index as HTML
+  Parameters: {"page"=>"1"}
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms | Allocations: 663)
+
+
+  
+TypeError (Photo::ActiveRecord_Relation can't be referred to):
+  
+app/models/photo.rb:7:in `all_cached'
+app/controllers/photos_controller.rb:6:in `index'
+Started GET "/photos?page=1" for ::1 at 2020-05-08 10:30:50 -0400
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PhotosController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos"[0m
+  ↳ app/controllers/photos_controller.rb:10:in `index'
+  [1m[36mPhoto Load (0.8ms)[0m  [1m[34mSELECT "photos".* FROM "photos" LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/photos_controller.rb:11:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.68ms)
+Completed 200 OK in 101ms (Views: 3.6ms | ActiveRecord: 40.3ms | Allocations: 7152)
+
+
+Started GET "/photos" for ::1 at 2020-05-08 10:38:18 -0400
+Processing by PhotosController#index as HTML
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 664)
+
+
+  
+TypeError (Photo::ActiveRecord_Relation can't be referred to):
+  
+app/models/photo.rb:7:in `all_cached'
+app/controllers/photos_controller.rb:6:in `index'
+Started GET "/photos?page=1" for ::1 at 2020-05-08 10:38:31 -0400
+Processing by PhotosController#index as HTML
+  Parameters: {"page"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 139)
+
+
+  
+TypeError (Photo::ActiveRecord_Relation can't be referred to):
+  
+app/models/photo.rb:7:in `all_cached'
+app/controllers/photos_controller.rb:6:in `index'
+Started GET "/photos?page=1" for ::1 at 2020-05-08 10:39:02 -0400
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PhotosController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos"[0m
+  ↳ app/controllers/photos_controller.rb:10:in `index'
+  [1m[36mPhoto Load (2.5ms)[0m  [1m[34mSELECT "photos".* FROM "photos" LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/photos_controller.rb:11:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.3ms)
+Completed 200 OK in 27ms (Views: 2.2ms | ActiveRecord: 14.8ms | Allocations: 7152)
+
+
+Started GET "/photos?page=1" for ::1 at 2020-05-08 10:40:58 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PhotosController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos"[0m
+  ↳ app/controllers/photos_controller.rb:10:in `index'
+  [1m[36mPhoto Load (0.5ms)[0m  [1m[34mSELECT "photos".* FROM "photos" LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/photos_controller.rb:11:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.25ms)
+Completed 200 OK in 17ms (Views: 1.1ms | ActiveRecord: 7.6ms | Allocations: 7153)
+
+
+Started GET "/photos" for ::1 at 2020-05-08 10:41:03 -0400
+Processing by PhotosController#index as HTML
+  [1m[36mPhoto Load (2.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  ↳ app/controllers/photos_controller.rb:16:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (7.92ms)
+Completed 200 OK in 23ms (Views: 20.2ms | ActiveRecord: 2.4ms | Allocations: 8035)
+
+
+Started GET "/photos" for ::1 at 2020-05-08 10:42:32 -0400
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PhotosController#index as HTML
+[active_model_serializers]   [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos" LIMIT $1[0m  [["LIMIT", 11]]
+[active_model_serializers]   ↳ app/controllers/photos_controller.rb:16:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (19.55ms)
+  [1m[36mCACHE Photo Load (0.0ms)[0m  [1m[34mSELECT "photos".* FROM "photos" LIMIT $1[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 7.1ms | Allocations: 10599)
+
+
+  [1m[36mCACHE Photo Load (0.0ms)[0m  [1m[34mSELECT "photos".* FROM "photos" LIMIT $1[0m  [["LIMIT", 11]]
+  
+NoMethodError (undefined method `read_attribute_for_serialization' for #<Photo::ActiveRecord_Relation:0x00007f8883137d20>):
+  
+app/controllers/photos_controller.rb:16:in `index'
+Started GET "/photos" for ::1 at 2020-05-08 10:52:49 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PhotosController#index as HTML
+  [1m[36mPhoto Load (1.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  ↳ app/controllers/photos_controller.rb:16:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.69ms)
+Completed 200 OK in 29ms (Views: 18.5ms | ActiveRecord: 6.7ms | Allocations: 12359)
+
+
+Started GET "/photos?page=1" for ::1 at 2020-05-08 10:52:54 -0400
+Processing by PhotosController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos"[0m
+  ↳ app/controllers/photos_controller.rb:10:in `index'
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/photos_controller.rb:11:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+Completed 200 OK in 11ms (Views: 1.6ms | ActiveRecord: 4.5ms | Allocations: 2832)
+
+

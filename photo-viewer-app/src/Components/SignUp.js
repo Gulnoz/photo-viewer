@@ -11,15 +11,11 @@ class SignUp extends Component {
     }
 
     handleChange = event => {
-        this.setState({
-            [event.target.name]: event.target.value
-        });
+        this.setState({[event.target.name]: event.target.value });
     }
 
     errorMessegeHendler(message) {
-        this.setState({
-            errorMessege: message
-        })
+        this.setState({ errorMessege: message })
     }
     handleSubmit = event => {
         event.preventDefault();
@@ -37,7 +33,8 @@ class SignUp extends Component {
             .then((result) => {
                     this.props.setCurrentUser(result.user);
                     localStorage.setItem('currentUserToken', result.jwt);})
-    }   
+    }
+
     render() {
         return (
             <Form onSubmit={this.handleSubmit} >
@@ -56,12 +53,8 @@ class SignUp extends Component {
                         {this.state.errorMessege
                             ? <div><Form.Label style={{ color: 'red' }}>{this.state.errorMessege}!!!</Form.Label></div>
                             : null}
-                <div><Button className="signup-btn" variant="primary" type="button" onClick={this.props.signUpHendler}>
-                            Cencel
-                        </Button>
-                        <Button className="signup-btn" variant="primary" type="submit">
-                            Submit
-                        </Button></div>
+                        <div><Button className="signup-btn" variant="primary" type="button" onClick={this.props.signUpHendler}>Cencel</Button>
+                        <Button className="signup-btn" variant="primary" type="submit">Submit</Button></div>
                     </Form>
         )
     }

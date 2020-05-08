@@ -1,6 +1,7 @@
 .dropdown {
 display: inline-block;
-margin:20px 60px;
+margin-left:60px;
+margin-top: 60px;
 font-family: 'Special Elite', cursive;
 color:white;
 }
@@ -25,12 +26,9 @@ margin: 30px;
 }
 .flex div{
 display: flex;
-/* height: 200px; */
 margin: 1em auto;
 }
 .flex img{
-/* width: 100px; */
-/* height: 200px; */
 border-radius: 3px;
 border-width: 1px;
 border-style: solid;
@@ -87,7 +85,6 @@ justify-content: center;
 flex-direction: column;
 height: -webkit-fill-available;
 background-color:(255,255,255,0.5);
-
 }
 .grayscale-btn{
 width: 90px;
@@ -95,7 +92,6 @@ height: 30px;
 margin: 10px;
 margin: 10px;
 }
-
 .show-photo-box img{
 border-radius: 3px;
 }
@@ -103,7 +99,6 @@ Form{
 display: flex;
 align-items: center;
 flex-direction: column;
-/* margin: 20px; */
 }
 Form.form-size{
 flex-direction: row;
@@ -120,15 +115,12 @@ color:blue;
 width: 80px;
 height: 18px;
 font-size: 14px;
-/* padding: 10px; */
-/* margin-left:5px */
 }
 .form-size button{
 margin-right: 0px;
 font-size: 14px;
 height: 26px;
 }
-
 Button{
 font-size: 14px;
 background-color: steelblue;
