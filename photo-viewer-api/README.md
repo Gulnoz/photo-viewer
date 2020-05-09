@@ -38,6 +38,9 @@ clone Repo
 1. Open the directory with cloned repo
 2. Run in bash `cd photo-viewer-api`
 3. To install all gems `Bundle install`
+
+Important: before running next, be sure your PostgreSQL Server is running on your mashine
+
 4. To create db `rails db:create && db:migrate`
 5. To seed db `rails db:seed`
 6. Run the server `rails s` -> [http://localhost:3000]
