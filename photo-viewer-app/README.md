@@ -11,7 +11,7 @@ npm, Node
 
 1) Install all dependencies in the navigation-client root folder terminal you should run:
 
-## `npm install`
+### `npm install`
 
 ### Importan: If you are going to run Client and Server applications in the same mashine, you should run first the server application.
 
