@@ -4,7 +4,7 @@ import Login from './Login'
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const Photos = props => {
-    const{photos, dimensions, pages, currentPage} = props
+    const { photos, dimensions, pages, currentPage, login, loginFormCloseHendler, setCurrentUser, imageHendler} = props
     const [value, setValue] = useState('All');
 
     const handleChange = (event) => {
@@ -13,7 +13,7 @@ const Photos = props => {
     }
 
     return (
-        <> {props.login ? <Login loginFormCloseHendler={props.loginFormCloseHendler}setCurrentUser={props.setCurrentUser}/>:null}
+        <> {login ? <Login loginFormCloseHendler={loginFormCloseHendler}setCurrentUser={setCurrentUser}/>:null}
             <h3 className='dropdown'>Filter by dimensions:
                 <select className='select-dd' value={value} onChange={handleChange}>
                     <option value={false}>All</option>
@@ -30,7 +30,7 @@ const Photos = props => {
                     <div className='flex'>                  
                             {photos.map((photo,index) => {
                                 return  <div key={index}><img id={photo.id} src={photo.url}
-                                                onClick={() => props.imageHendler(photo)}/> 
+                                                onClick={() => imageHendler(photo)}/> 
                                         </div>})}                         
                     </div> 
                 </InfiniteScroll> 

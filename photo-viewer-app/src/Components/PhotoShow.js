@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './Photos.css';
 import { Form, Button } from "react-bootstrap";
+
 const PhotoShow = props => {
     const { photo, history} = props
     const [currentPhoto, setCurrentPhoto] = useState(photo);
