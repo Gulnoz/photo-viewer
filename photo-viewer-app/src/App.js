@@ -16,11 +16,11 @@ class App extends React.Component {
     login: false,
     currentPage: null,
   }
-loginHendler=()=>{ this.setState({login: true}) }
+loginHendler = () => { this.setState({login: true}) }
 
-loginFormCloseHendler=()=> { this.setState({login: false}) }
+loginFormCloseHendler = () => { this.setState({login: false}) }
 
-fetchMoreData=()=>{
+fetchMoreData = () => {
   if(this.state.currentPage-this.state.pages!==0){
   fetch(`https://photo-viewer-apii.herokuapp.com/photos?page=${this.state.currentPage + 1}`)
     .then(res => res.json())
