@@ -1,1 +1,34 @@
-# See https://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+In order to avoid SQL Injection attacks, you should always escape any user provided data before using it inside a SQL query. You can do so using the mysql.escape(), connection.escape() or pool.escape() methods:
+
+const getOneEvent = async (id) => {
+    let result = await pool.query(`select * from events where event_id = ${pool.escape(id)};`);
+    if(result.length>0){
+        return result[0];
+    }
+    return {'errorMessage': `id: '${id}' was not found.`};
+};
+
+Or you can use ? characters as placeholders for values you would like to have escaped like this:
+
+const createEvent = async (params) => {
+    const { organizer, venue, date } = params;
+    let result = await pool.query(`insert into events SET ?;`,{organizer, venue, date});
+    let createdEvent = getOneEvent(result.insertId);
+    return createdEvent;
+};
+
+Or using PROCEDURE:
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS CreateEvent;
+CREATE PROCEDURE CreateEvent (
+	IN p_organizer VARCHAR(255), p_venue VARCHAR(255), p_date VARCHAR(255)
+)
+BEGIN
+	INSERT INTO
+	events 
+        (organizer, venue, date)
+        VALUES
+        (p_organizer, p_venue, p_date);
+END$$
+DELIMITER ;
